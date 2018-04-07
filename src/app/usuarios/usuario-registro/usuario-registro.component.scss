@@ -1,11 +1,9 @@
-.userContainer {
-    width: 70%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@import './src/app/shared/variables';
 
-    .pull-right {
-        text-align: right;
-    }
+.userContainer {
+    @include userContainer();
+}
+
+.pull-right {
+    @include pull-right();
 }

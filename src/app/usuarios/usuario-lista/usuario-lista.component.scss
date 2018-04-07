@@ -1,0 +1,16 @@
+
+@import './src/app/shared/variables';
+
+.userContainer {
+    @include userContainer();
+
+    .list-group-item:hover {
+        cursor: pointer;
+        background-color: rgb(235, 165, 165);
+        text-decoration: line-through;
+    }
+}
+
+.pull-right {
+    @include pull-right();
+}

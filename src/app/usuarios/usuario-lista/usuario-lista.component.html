@@ -1,3 +1,14 @@
-<p>
-  usuario-lista works!
-</p>
+<div class="container userContainer">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Usuarios registrados</h5>
+        <div class="card-text">
+        <div class="list-group" *ngFor="let usuario of usuarios">
+          <a (click)="eliminarItem(usuario)" class="list-group-item list-group-item-action">
+            <strong>{{usuario.nombre}} {{usuario.apellido}}</strong>, DNI: {{usuario.dni}}
+            <small class="float-right">{{usuario.mail}}</small>
+          </a>
+        </div>        
+      </div>
+    </div>
+  </div>

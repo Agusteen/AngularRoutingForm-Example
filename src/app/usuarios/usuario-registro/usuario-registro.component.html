@@ -1,0 +1,62 @@
+<div class="container userContainer">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Nuevo usuario</h5>
+        <div class="card-text">
+          <form [formGroup]="usuarioForm" (submit)="guardar(usuarioForm)">
+  
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nombre</span>
+              </div>
+              <input class="form-control" type="text" formControlName="nombre" autocomplete="false">
+            </div>
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['nombre'].invalid && usuarioForm.controls['nombre'].touched"
+              [type]="'success'">
+              <span *ngIf="usuarioForm.controls['nombre'].errors.required">Este campo es requerido</span>
+              <span *ngIf="usuarioForm.controls['nombre'].errors.pattern">No puede contener números</span>
+            </ngb-alert>
+  
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Apellido</span>
+              </div>
+              <input class="form-control" type="text" formControlName="apellido" autocomplete="false">
+            </div>
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['apellido'].invalid && usuarioForm.controls['apellido'].touched"
+              [type]="'success'">
+              <span *ngIf="usuarioForm.controls['apellido'].errors.required">Este campo es requerido</span>
+              <span *ngIf="usuarioForm.controls['apellido'].errors.pattern">No puede contener números</span>
+            </ngb-alert>
+  
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">DNI</span>
+              </div>
+              <input class="form-control" type="text" formControlName="dni">
+            </div>
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['dni'].invalid && usuarioForm.controls['dni'].touched" [type]="'success'">
+              <span *ngIf="usuarioForm.controls['dni'].errors.required">Este campo es requerido</span>
+              <span *ngIf="usuarioForm.controls['dni'].errors.pattern">No puede contener letras</span>
+            </ngb-alert>
+  
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">E-Mail</span>
+              </div>
+              <input class="form-control" type="email" formControlName="mail">
+            </div>
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['mail'].invalid && usuarioForm.controls['mail'].touched" [type]="'success'">
+              <span *ngIf="usuarioForm.controls['mail'].errors.required">Este campo es requerido</span>
+              <span *ngIf="usuarioForm.controls['mail'].errors.email && !usuarioForm.controls['mail'].errors.required">Formato de e-mail incorrecto</span>
+            </ngb-alert>
+  
+            <div class="pull-right">
+              <button type="reset" class="btn btn-light">Limpiar</button>
+              <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-success">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

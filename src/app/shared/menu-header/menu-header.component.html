@@ -1,11 +1,15 @@
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link active" href="#"[routerLink]="['']">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"[routerLink]="['/usuarios']">Usuarios</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/usuarios/nuevoUsuario']">Nuevo Usuario</a>
-    </li>    
-</ul>
+<div class="userHeader">
+  <div class="navHeader">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"[routerLink]="['']">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"[routerLink]="['/usuarios']">LISTADO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuarios/nuevoUsuario']">REGISTRO</a>
+        </li>    
+    </ul>
+  </div>
+</div>

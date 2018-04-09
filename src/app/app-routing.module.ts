@@ -10,10 +10,6 @@ const routes: Routes = [
   {
     path: 'usuarios',
     loadChildren: 'app/usuarios/usuarios.module#UsuariosModule'
-  },
-  {
-    path: ':**',
-    component: HomeComponent
   }
 ];
 

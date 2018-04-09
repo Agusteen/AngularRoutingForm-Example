@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Usuario } from '../usuarios.model';
 import { UsuariosService } from '../usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pr2-usuario-registro',
@@ -13,11 +14,12 @@ export class UsuarioRegistroComponent implements OnInit {
   usuarioForm: FormGroup;
   usuarioNuevo: Usuario;
 
-  constructor(private formBuilder: FormBuilder, private _usuariosService: UsuariosService) {
+  constructor(private formBuilder: FormBuilder, private _usuariosService: UsuariosService, private router: Router) {
     this.inicializarForm();
   }
 
   ngOnInit() {
+    
   }
 
   inicializarForm() {
@@ -36,6 +38,8 @@ export class UsuarioRegistroComponent implements OnInit {
       this._usuariosService.addUsuario(this.usuarioNuevo);
 
       this.usuarioForm.reset();
+      this.router.navigate(['./usuarios']);
+      
       alert("El usuario se registró correctamente");
     } else {
       alert("Ups! No se puedo registrar el usuario");

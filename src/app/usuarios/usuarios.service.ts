@@ -16,8 +16,6 @@ export class UsuariosService {
   constructor() { }
 
   addUsuario(usuarioNuevo: Usuario) {
-    console.log(usuarioNuevo);
-    
     USUARIOS_DATA.push(usuarioNuevo);
   }
 

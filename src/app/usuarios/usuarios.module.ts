@@ -16,7 +16,7 @@ import { DniFormatPipe } from './pipes/dni-format.pipe';
     UsuariosRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [UsuarioRegistroComponent, UsuarioListaComponent, DniFormatPipe],
   exports: [UsuarioRegistroComponent, UsuarioListaComponent],

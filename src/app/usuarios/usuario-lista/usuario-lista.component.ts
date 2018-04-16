@@ -2,11 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuarios.model';
 import { UsuariosService } from '../usuarios.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { trigger,style,transition,animate,query,stagger } from '@angular/animations';
 
 @Component({
   selector: 'pr2-usuario-lista',
   templateUrl: './usuario-lista.component.html',
-  styleUrls: ['./usuario-lista.component.scss']
+  styleUrls: ['./usuario-lista.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [     
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('0.8s', style({ opacity: 1 }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class UsuarioListaComponent implements OnInit {
 

@@ -7,3 +7,9 @@
 .pull-right {
     @include pull-right();
 }
+
+.input-group-prepend {
+    span {
+        width: 170px;
+    }
+}

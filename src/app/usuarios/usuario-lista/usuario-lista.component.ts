@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuarios.model';
 import { UsuariosService } from '../usuarios.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'pr2-usuario-lista',
@@ -10,8 +11,9 @@ import { UsuariosService } from '../usuarios.service';
 export class UsuarioListaComponent implements OnInit {
 
   usuarios: Usuario[];
+  usuarioSeleccionado: Usuario;
 
-  constructor(private _usuariosService: UsuariosService) { }
+  constructor(private _usuariosService: UsuariosService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.loadUsuarios();
@@ -26,6 +28,16 @@ export class UsuarioListaComponent implements OnInit {
 
   eliminarItem(usuario) {
     this._usuariosService.deleteUsuario(usuario);
+  }
+
+  open(content, usuario) {
+    this.usuarioSeleccionado = usuario;
+     
+    this.modalService.open(content).result.then((result) => {
+      
+    }, (reason) => {
+      
+    });
   }
 
 }

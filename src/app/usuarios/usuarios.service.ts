@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
 export const USUARIOS_DATA: Usuario[] = [
-  new Usuario('Agustin', 'Muñoz Campos', 37347617, 'agustin.munoz@incluit.com'),
-  new Usuario('Victor', 'Ruiz', 30677450, 'victor.rz@gmail.com'),
-  new Usuario('Nina', 'Kraviz', 17443671, 'ninakraviz@gmail.com')
+  new Usuario('Agustin', 'Muñoz Campos', 37347617, 'agustin.munoz@incluit.com', new Date('1993-10-15T03:24:00'), '3513177225', 'Obispo Trejo 1069'),
+  new Usuario('Victor', 'Ruiz', 30677450, 'victor.rz@gmail.com', new Date('1990-12-21T03:24:00'), '3599177265', 'Independencia 89'),
+  new Usuario('Nina', 'Kraviz', 17443671, 'ninakraviz@gmail.com', new Date('1988-9-10T03:24:00'), '3513577625', 'Cañada 3422')
 ];
 
 @Injectable()

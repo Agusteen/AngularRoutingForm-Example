@@ -35,9 +35,9 @@
               </div>
               <input class="form-control" type="text" formControlName="dni">
             </div>
-            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['dni'].invalid && usuarioForm.controls['dni'].touched" [type]="'success'">
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['dni'].invalid && usuarioForm.controls['dni'].dirty" [type]="'success'">
               <span *ngIf="usuarioForm.controls['dni'].errors.required">Este campo es requerido</span>
-              <span *ngIf="usuarioForm.controls['dni'].errors.pattern">No puede contener letras</span>
+              <span *ngIf="usuarioForm.controls['dni'].errors.pattern || usuarioForm.controls['dni'].errors.minlength || usuarioForm.controls['dni'].errors.maxlength">Formato de DNI incorrecto</span>
             </ngb-alert>
   
             <div class="input-group mb-3">
@@ -50,6 +50,47 @@
               <span *ngIf="usuarioForm.controls['mail'].errors.required">Este campo es requerido</span>
               <span *ngIf="usuarioForm.controls['mail'].errors.email && !usuarioForm.controls['mail'].errors.required">Formato de e-mail incorrecto</span>
             </ngb-alert>
+
+            <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">Fecha de nacimiento</span>
+                    </div>
+                <input class="form-control" placeholder="Click aquí para desplegar el calendario" readonly
+                       name="dp" formControlName="date" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+              </div>
+            </div>
+            <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['date'].invalid && usuarioForm.controls['date'].dirty" [type]="'success'">
+                <span *ngIf="usuarioForm.controls['date'].errors.required">Este campo es requerido</span>
+                <span *ngIf="usuarioForm.controls['date'].errors.pattern && !usuarioForm.controls['date'].errors.required">Formato de fecha incorrecto</span>
+            </ngb-alert>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Teléfono</span>
+                </div>
+                <input class="form-control" type="text" formControlName="phone">
+              </div>
+              <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['phone'].invalid && usuarioForm.controls['phone'].touched" [type]="'success'">
+                <span *ngIf="usuarioForm.controls['phone'].errors.required">Este campo es requerido</span>
+              </ngb-alert>
+
+
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Dirección</span>
+                  </div>
+                  <input class="form-control" type="text" formControlName="address">
+                </div>
+                <ngb-alert [dismissible]="false" *ngIf="usuarioForm.controls['address'].invalid && usuarioForm.controls['address'].touched" [type]="'success'">
+                  <span *ngIf="usuarioForm.controls['address'].errors.required">Este campo es requerido</span>
+                </ngb-alert>
+
+
+
+
+
+
   
             <div class="pull-right">
               <button type="reset" class="btn btn-light">Limpiar</button>

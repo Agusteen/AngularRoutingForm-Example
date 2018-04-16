@@ -26,14 +26,17 @@ export class UsuarioRegistroComponent implements OnInit {
     this.usuarioForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.pattern('[ñA-Za-z ]+')]],
       apellido: ['', [Validators.required, Validators.pattern('[ñA-Za-z ]+')]],
-      dni: ['', [Validators.required, Validators.pattern("[0-9]+")]],
-      mail: ['', [Validators.required, Validators.email]]
+      dni: ['', [Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(7), Validators.maxLength(8)]],
+      mail: ['', [Validators.required, Validators.email]],
+      date: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      address: ['', [Validators.required]]
     });
   }
 
   guardar(form) { 
     if(form.valid) {
-      this.usuarioNuevo = new Usuario(form.controls.nombre.value, form.controls.apellido.value, form.controls.dni.value, form.controls.mail.value);
+      this.usuarioNuevo = new Usuario(form.controls.nombre.value, form.controls.apellido.value, form.controls.dni.value, form.controls.mail.value, form.controls.date.value, form.controls.phone.value, form.controls.address.value);
 
       this._usuariosService.addUsuario(this.usuarioNuevo);
 

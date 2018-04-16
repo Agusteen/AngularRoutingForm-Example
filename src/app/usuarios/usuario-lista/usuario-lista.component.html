@@ -5,7 +5,7 @@
         <div class="card-text">
         <div class="list-group" *ngFor="let usuario of usuarios">
           <a (click)="open(content, usuario)" class="list-group-item list-group-item-action">
-            <strong>{{usuario.nombre}} {{usuario.apellido}}</strong>, DNI: {{usuario.dni}}
+            <strong>{{usuario.nombre}} {{usuario.apellido}}</strong>, DNI: {{usuario.dni | dniFormat}}
             <small class="float-right">{{usuario.mail}}</small>
           </a>
         </div>        
@@ -14,18 +14,18 @@
   </div>
 </div>
 
-
+<!-- Modal detalle de usuario -->
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title">{{usuarioSeleccionado.nombre}} {{usuarioSeleccionado.apellido}}</h4>
+      <h4 class="modal-title">{{usuarioSeleccionado.nombre | uppercase}} {{usuarioSeleccionado.apellido | uppercase}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <p>DNI: {{usuarioSeleccionado.dni}}</p>
+      <p>DNI: {{usuarioSeleccionado.dni | dniFormat}}</p>
       <p>E-Mail: {{usuarioSeleccionado.mail}}</p>
-      <p>Fecha de Nacimiento: {{usuarioSeleccionado.fecha | date:'shortDate'}}</p>
+      <p>Fecha de Nacimiento: {{usuarioSeleccionado.fecha | date:'dd-MM-yyyy'}}</p>
       <p>Teléfono: {{usuarioSeleccionado.telefono}}</p>
       <p>Dirección: {{usuarioSeleccionado.direccion}}</p>
     </div>

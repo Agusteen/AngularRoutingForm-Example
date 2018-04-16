@@ -8,6 +8,7 @@ import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.co
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosService } from './usuarios.service';
+import { DniFormatPipe } from './pipes/dni-format.pipe';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { UsuariosService } from './usuarios.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [UsuarioRegistroComponent, UsuarioListaComponent],
+  declarations: [UsuarioRegistroComponent, UsuarioListaComponent, DniFormatPipe],
   exports: [UsuarioRegistroComponent, UsuarioListaComponent],
   providers: [UsuariosService]
 })
